@@ -120,15 +120,20 @@ class WhoAmI5 extends Component {
   }
 }
 
+const Wrapper = styled.div `
+  width: 600px;
+  margin: 80px auto 0 auto
+`;
+
 function App() {
   return (
-    <div className="app">
+    <Wrapper>
     <WhoAmI1 name="John" lastname="Smith" link="facebook.com"/>
     <WhoAmI2 name="Vin" lastname="Diesel" link="facebook.com"/>
     <WhoAmI3 name={{firstName: "Part of"}} lastname="Object" link="facebook.com"/>
     <WhoAmI4 name={() => {return "Function here !!!!!"}} lastname="realy!" link="facebook.com"/>
     <WhoAmI5 name="we use classes!!!" lastname="here!!" link="facebook.com"/>
-  </div>
+  </Wrapper>
   );
 }
 export default App;
