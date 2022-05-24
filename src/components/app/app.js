@@ -1,9 +1,4 @@
 import { Component } from 'react';
-import AppInfo from '../app-info/app-info';
-import SearchPanel from '../search-panel/search-panel';
-import AppFilter from '../app-filter/app-filter';
-import EmployeesList from '../employees-list/employees-list';
-import EmployeesAddForm from '../employees-add-form/employees-add-form';
 
 import './app.css';
 
@@ -81,15 +76,6 @@ class WhoAmI5 extends Component {
     }))
   }
 
-  //событие инпута. передали в сетстейт обьект, изменили стейт.
-  commitInputOnChanges = (e, color) => {
-    console.log(color);
-    console.log(e.target);
-    console.log(e.target.value);
-    this.setState({
-      pos: e.target.value
-    })
-  }
 
   render() {
     const {name, lastname, link} = this.props;
