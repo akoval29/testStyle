@@ -3,11 +3,30 @@ import styled from 'styled-components';
 import './app.css';
 
 
+const EmpItem = styled.div `
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0,0,0, .2);
+`;
+
+const Header = styled.h2 `
+  font-size: 22px;
+`;
+
+export const Button = styled.button `
+  display: block;
+  padding: 5px 15px;
+  background-color: gold;
+  border: 1px solid rgba(0,0,0, .2);
+  box-shadow: 5px 5px 10px rgba(0,0,0, .2);
+`;
+
 // Передача аргументів - Варіант № 1
 function WhoAmI1 (props) {
   return (
     <div>
-      <h1>My name is {props.name}, lastname - {props.lastname}</h1>
+      <Header>My name is {props.name}, lastname - {props.lastname}</Header>
       <a href={props.link}>My profile</a>
     </div>
   )
@@ -43,7 +62,9 @@ function WhoAmI4 ({name, lastname, link}) {
   )
 }
 
+
 // Класи
+
 class WhoAmI5 extends Component {
   constructor(props) {
     super(props);
@@ -91,22 +112,21 @@ class WhoAmI5 extends Component {
     const {name, lastname, link} = this.props;
     const {years, pos}= this.state;
     return (
-      <div>
+      <EmpItem>
         {/* Первый метод привязки контекста*/}
-        <button onClick={this.nextYear} >{this.state.textPlus}</button>
-        <button onClick={this.prefYear} >{this.state.textMinus}</button>
+        <Button onClick={this.nextYear} >{this.state.textPlus}</Button>
+        <Button onClick={this.prefYear} >{this.state.textMinus}</Button>
         
         {/* Второй метод */}
-        <button onClick={this.nextYear2} >{this.state.textPlus}</button>
+        <Button onClick={this.nextYear2} >{this.state.textPlus}</Button>
         
         {/* Третий метод */}
-        <button onClick={() => this.nextYear2()} >{this.state.textPlus}</button>
+        <Button onClick={() => this.nextYear2()} >{this.state.textPlus}</Button>
 
-        <h1>My name is {name}, 
+        <Header>My name is {name}, 
         lastname - {lastname}, 
         age - {years}, 
-        input - {pos}</h1>
-
+        input - {pos}</Header>
         <a href={link}>My profile</a>
         
         <form>
@@ -115,7 +135,7 @@ class WhoAmI5 extends Component {
         </form>
         {/* еще варианты = onChange - onClick - onSubmit - onInput */}
         {/* аргументы можна и не передавать, тогда будет:   <input type="text" onChange={this.commitInputOnChange}/>   */}
-      </div>
+      </EmpItem>
     )
   }
 }
@@ -127,7 +147,7 @@ const Wrapper = styled.div `
 
 function App() {
   return (
-    <Wrapper>
+    <Wrapper classname="App">
     <WhoAmI1 name="John" lastname="Smith" link="facebook.com"/>
     <WhoAmI2 name="Vin" lastname="Diesel" link="facebook.com"/>
     <WhoAmI3 name={{firstName: "Part of"}} lastname="Object" link="facebook.com"/>
