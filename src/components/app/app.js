@@ -8,6 +8,15 @@ const EmpItem = styled.div `
   margin-bottom: 15px;
   border-radius: 5px;
   box-shadow: 5px 5px 10px rgba(0,0,0, .2);
+  a {  //це було використано в index.js
+    display: block;
+    margin: 10px 0 10px 0;
+    color: ${props=> props.active ? 'orange' : 'black'};
+  }
+  input {
+    display: block;
+    margin-top: 10px;
+  }
 `;
 
 const Header = styled.h2 `
@@ -112,7 +121,7 @@ class WhoAmI5 extends Component {
     const {name, lastname, link} = this.props;
     const {years, pos}= this.state;
     return (
-      <EmpItem>
+      <EmpItem active>  {/*active - true, 14 line*/}
         {/* Первый метод привязки контекста*/}
         <Button onClick={this.nextYear} >{this.state.textPlus}</Button>
         <Button onClick={this.prefYear} >{this.state.textMinus}</Button>
