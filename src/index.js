@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './app';
 
 import {Button} from './app';
-import BootstrapTest from './bootstrapTest';
+import BootstrapTest from './bootstraptest';
 import styled from 'styled-components';
 
 import 'bootstrap/dist/css/bootstrap.min.css';  // стилі bootstrap
