@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app/app';
+import App from './app';
 
-import {Button} from './components/app/app';
+import {Button} from './app';
 import BootstrapTest from './bootstrapTest';
 import styled from 'styled-components';
 
