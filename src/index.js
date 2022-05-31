@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './components/app/app';
 
 import {Button} from './components/app/app';
+import BootstrapTest from './bootstrapTest';
 import styled from 'styled-components';
+
+import 'bootstrap/dist/css/bootstrap.min.css';  // стилі bootstrap
 
 // import './index.css';
 import './index.scss';
@@ -20,6 +23,7 @@ ReactDOM.render(
     <Button>Імпортована кнопка з app.js</Button>
     <BigButton>Змінена шляхом наслідування + додаткові параметри index.js</BigButton>
     <BigButton as='a'>перетворили кнопку в ссилку</BigButton>
+    <BootstrapTest />
   </React.StrictMode>,
   document.getElementById('root'),
 );
