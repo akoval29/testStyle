@@ -1,7 +1,9 @@
-import { Component } from 'react';
+import React from 'react';
+import {Component } from 'react';
 import styled from 'styled-components';
 import './app.css';
 
+import BootstrapTest1 from './bootstraptest1';
 
 const EmpItem = styled.div `
   padding: 20px;
@@ -35,7 +37,7 @@ export const Button = styled.button `
 function WhoAmI1 (props) {
   return (
     <div>
-      <Header>My name is {props.name}, lastname - {props.lastname}</Header>
+      <Header>Name - {props.name}, lastname - {props.lastname}</Header>
       <a href={props.link}>My profile</a>
     </div>
   )
@@ -45,7 +47,7 @@ function WhoAmI1 (props) {
 function WhoAmI2 ({name, lastname, link}) {
   return (
     <div>
-      <h1>My name is {name}, lastname - {lastname}</h1>
+      <h1>Name - {name}, lastname - {lastname}</h1>
       <a href={link}>My profile</a>
     </div>
   )
@@ -55,7 +57,7 @@ function WhoAmI2 ({name, lastname, link}) {
 function WhoAmI3 ({name, lastname, link}) {
   return (
     <div>
-      <h1>My name is {name.firstName}, lastname - {lastname}</h1>
+      <h1>Name - {name.firstName}, lastname - {lastname}</h1>
       <a href={link}>My profile</a>
     </div>
   )
@@ -65,7 +67,7 @@ function WhoAmI3 ({name, lastname, link}) {
 function WhoAmI4 ({name, lastname, link}) {
   return (
     <div>
-      <h1>My name is {name()}, lastname - {lastname}</h1>
+      <h1>Name - {name()}, lastname - {lastname}</h1>
       <a href={link}>My profile</a>
     </div>
   )
@@ -132,7 +134,7 @@ class WhoAmI5 extends Component {
         {/* Третий метод */}
         <Button onClick={() => this.nextYear2()} >{this.state.textPlus}</Button>
 
-        <Header>My name is {name}, 
+        <Header>Name - {name}, 
         lastname - {lastname}, 
         age - {years}, 
         input - {pos}</Header>
@@ -154,14 +156,59 @@ const Wrapper = styled.div `
   margin: 80px auto 0 auto
 `;
 
+const DynamicGreating = (props) => {
+  return (
+    <div className={'mb-3 p-3 border border-' + props.color}>
+      {props.children} 
+    </div>
+  )
+}
+
+const DynamicGreating1 = (props) => {
+  return (
+    <div className={'mb-3 p-3 border border-' + props.color}>
+      {
+        React.Children.map(props.children, child => {
+          return React.cloneElement(child, {className: 'shadow p-3 m-3 border rounded'})
+        })
+      }
+    </div>
+  )
+}
+
+
 function App() {
   return (
-    <Wrapper classname="App">
+    <Wrapper>
+    <DynamicGreating color={'primary'}>
+      <h2>its children</h2>
+      <h2>props</h2>
+    </DynamicGreating>
+
+    <DynamicGreating1 color={'primary'}>
+      <h2>children props styled by</h2>
+      <h2>"cloneElement" and "map"</h2>
+    </DynamicGreating1>
+
+    <BootstrapTest1
+    left = {
+        <DynamicGreating color={'primary'}>
+          <h2>LEFT COL</h2>
+        </DynamicGreating>
+      }
+    right = {
+        <DynamicGreating color={'primary'}>
+          <h2>RIGHT COL</h2>
+        </DynamicGreating>
+      }    
+    />
+
     <WhoAmI1 name="John" lastname="Smith" link="facebook.com"/>
     <WhoAmI2 name="Vin" lastname="Diesel" link="facebook.com"/>
     <WhoAmI3 name={{firstName: "Part of"}} lastname="Object" link="facebook.com"/>
     <WhoAmI4 name={() => {return "Function here !!!!!"}} lastname="realy!" link="facebook.com"/>
     <WhoAmI5 name="we use classes!!!" lastname="here!!" link="facebook.com"/>
+
   </Wrapper>
   );
 }
