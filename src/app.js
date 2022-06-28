@@ -36,9 +36,10 @@ export const Button = styled.button `
 // Передача аргументів - Варіант № 1
 function WhoAmI1 (props) {
   return (
-    <div>
+    <div className={'mb-3 p-3 border'}>
+      <h5>Передача аргументів № 1</h5>
       <Header>Name - {props.name}, lastname - {props.lastname}</Header>
-      <a href={props.link}>My profile</a>
+      <a href={props.link}>Link</a>
     </div>
   )
 }
@@ -46,9 +47,10 @@ function WhoAmI1 (props) {
 // Передача аргументів - Варіант № 2 - деструктуризація
 function WhoAmI2 ({name, lastname, link}) {
   return (
-    <div>
-      <h1>Name - {name}, lastname - {lastname}</h1>
-      <a href={link}>My profile</a>
+    <div className={'mb-3 p-3 border'}>
+      <h5>№2: деструктуризація</h5>
+      <h3>Name - {name}, lastname - {lastname}</h3>
+      <a href={link}>Link</a>
     </div>
   )
 }
@@ -56,9 +58,10 @@ function WhoAmI2 ({name, lastname, link}) {
 // Передача аргументів - Варіант № 3 - передали СВОЙСТВО ОБЄКТА
 function WhoAmI3 ({name, lastname, link}) {
   return (
-    <div>
-      <h1>Name - {name.firstName}, lastname - {lastname}</h1>
-      <a href={link}>My profile</a>
+    <div className={'mb-3 p-3 border'}>
+      <h5>№3: передача свойства обєкта</h5>
+      <h3>Name - {name.firstName}, lastname - {lastname}</h3>
+      <a href={link}>Link</a>
     </div>
   )
 }
@@ -66,13 +69,13 @@ function WhoAmI3 ({name, lastname, link}) {
 // Передача аргументів - Варіант № 4 - передали ФУНКЦІЮ
 function WhoAmI4 ({name, lastname, link}) {
   return (
-    <div>
-      <h1>Name - {name()}, lastname - {lastname}</h1>
-      <a href={link}>My profile</a>
+    <div className={'mb-3 p-3 border'}>
+      <h5>№4: передача функції</h5>
+      <h3>Name - {name()}, lastname - {lastname}</h3>
+      <a href={link}>Link</a>
     </div>
   )
 }
-
 
 // Класи
 
@@ -123,7 +126,8 @@ class WhoAmI5 extends Component {
     const {name, lastname, link} = this.props;
     const {years, pos}= this.state;
     return (
-      <EmpItem active>  {/*active - true, 14 line*/}
+      <EmpItem active>
+        <h5>№5: Застосовано класи та стилі</h5>
         {/* Первый метод привязки контекста*/}
         <Button onClick={this.nextYear} >{this.state.textPlus}</Button>
         <Button onClick={this.prefYear} >{this.state.textMinus}</Button>
@@ -141,11 +145,11 @@ class WhoAmI5 extends Component {
         <a href={link}>My profile</a>
         
         <form>
-          <span>Введите должность</span>
+          <span>Введіть сюди</span>
           <input type="text" onChange={(e) => this.commitInputOnChanges(e, 'some color')}/> 
         </form>
         {/* еще варианты = onChange - onClick - onSubmit - onInput */}
-        {/* аргументы можна и не передавать, тогда будет:   <input type="text" onChange={this.commitInputOnChange}/>   */}
+        {/* аргументы можна и не передавать, тогда будет:   <input type="text" onChange={this.commitInputOnChange}/>*/}
       </EmpItem>
     )
   }
@@ -176,6 +180,16 @@ const DynamicGreating1 = (props) => {
   )
 }
 
+const HelloGreating = () => {
+  return (
+    <div style={{'width':'900px', 'margin': '0 auto'}}>
+      <DynamicGreating color={'primary'}>
+        <h2>приклад наслідування</h2>
+        <h2>від children.props + інші стилі</h2>
+      </DynamicGreating>
+    </div>
+  )
+}
 
 function App() {
   return (
@@ -185,31 +199,37 @@ function App() {
       <h2>props</h2>
     </DynamicGreating>
 
+    <HelloGreating/>
+
     <DynamicGreating1 color={'primary'}>
       <h2>children props styled by</h2>
       <h2>"cloneElement" and "map"</h2>
     </DynamicGreating1>
 
+    <WhoAmI1 name="John" lastname="Smith" link="facebook.com"/>
+    <WhoAmI2 name="Alex" lastname="Shepard" link="facebook.com"/>
+    <WhoAmI3 name={{firstName: "Ice"}} lastname="Cube" link="facebook.com"/>
+    <WhoAmI4 name={() => {return "Ben"}} lastname="Kox" link="facebook.com"/>
+    <WhoAmI5 name="Sam" lastname="Miller" link="facebook.com"/>
+
     <BootstrapTest1
     left = {
         <DynamicGreating color={'primary'}>
-          <h2>LEFT COL</h2>
+          <h4>LEFT COL</h4>
+        </DynamicGreating>
+      }
+    mid = {
+        <DynamicGreating color={'primary'}>
+          <h4>MID COL</h4>
         </DynamicGreating>
       }
     right = {
         <DynamicGreating color={'primary'}>
-          <h2>RIGHT COL</h2>
+          <h4>RIGHT COL</h4>
         </DynamicGreating>
-      }    
+      }
     />
-
-    <WhoAmI1 name="John" lastname="Smith" link="facebook.com"/>
-    <WhoAmI2 name="Vin" lastname="Diesel" link="facebook.com"/>
-    <WhoAmI3 name={{firstName: "Part of"}} lastname="Object" link="facebook.com"/>
-    <WhoAmI4 name={() => {return "Function here !!!!!"}} lastname="realy!" link="facebook.com"/>
-    <WhoAmI5 name="we use classes!!!" lastname="here!!" link="facebook.com"/>
-
-  </Wrapper>
+    </Wrapper>
   );
 }
 export default App;

@@ -1,9 +1,9 @@
 import { Container, Row, Col, Carousel, Form, Button } from "react-bootstrap";
 
-
 const bootstrapTest = () => {
     return (
         <Container className="mt-5 mb-5">
+            <h3 style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '10vh'}}>BootstrapTest</h3>
             <Row>
                 <Col>
                 <Form>
