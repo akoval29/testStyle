@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';  // стилі bootstrap
 import {Button} from './app';
 import BootstrapTest from './bootstraptest';
+import Counter1 from './counter';
 
 import './index.scss';
 
@@ -22,6 +23,7 @@ ReactDOM.render(
     <BigButton as='a'>перетворили кнопку в ссилку</BigButton>
     <App />
     <BootstrapTest />
+    <Counter1/>
   </React.StrictMode>,
   document.getElementById('root'),
 );
