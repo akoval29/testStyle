@@ -9,6 +9,7 @@ import BootstrapTest from './bootstraptest';
 import Counter1 from './counter';
 
 import './index.scss';
+import RefForm from './refForm';
 
 const BigButton = styled(Button)` //щоб це працювало був імпорт styled
   margin: 0 auto;
@@ -21,9 +22,10 @@ ReactDOM.render(
     <Button>Імпортована кнопка з app.js</Button>
     <BigButton>Змінена шляхом наслідування + додаткові параметри index.js</BigButton>
     <BigButton as='a'>перетворили кнопку в ссилку</BigButton>
-    <App />
+    <App/>
     <BootstrapTest />
     <Counter1/>
+    <RefForm/>
   </React.StrictMode>,
   document.getElementById('root'),
 );
