@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';  // стилі bootstrap
 import {Button} from './app';
 import BootstrapTest from './bootstraptest';
 import Counter1 from './counter';
+import PortalExport from './Portal';
 
 import './index.scss';
 import RefForm from './refForm';
@@ -26,6 +27,7 @@ ReactDOM.render(
     <BootstrapTest />
     <Counter1/>
     <RefForm/>
+    <PortalExport/>
   </React.StrictMode>,
   document.getElementById('root'),
 );

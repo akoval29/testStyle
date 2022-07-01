@@ -17,7 +17,7 @@ class Form extends Component {
             <Container>
                 <form className="w-50 border mt-5 p-3 m-auto">
                     <div className="mb-3">
-                        <div className='mb-3'> Тест Рефів </div>
+                        <div className='mb-3'> Тест Рефів - автофокус </div>
                         <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
                         <input ref={this.myRef} type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
                     </div>
