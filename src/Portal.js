@@ -20,8 +20,8 @@ class Form extends Component {
     render() {
         return (
             <Container>
-                <form onClick={this.handleClick} className="w-50 border mt-5 p-3 m-auto" 
-                style={{'overflow': 'hidden', 
+                <form onClick={this.handleClick} className="w-50 border mt-5 p-3 m-auto"
+                style={{'overflow': 'hidden',
                         'position': 'relative'}}>
                     <div className='mb-3'> Портал </div>
                     <div className="mb-3">
@@ -48,12 +48,13 @@ const Portal = (props) => {
 const Msg = () => {
     return (
         <div 
-        style={{'width': '500px', 
-                'height': '150px', 
-                'backgroundColor': 'red', 
-                'position': 'absolute', 
-                'left': '0%', 
-                'bottom': '0%'}}>
+        style={{
+            'width': '500px', 
+            'height': '150px', 
+            'backgroundColor': 'red', 
+            'position': 'absolute', 
+            'left': '0%', 
+            'bottom': '0%'}}>
             Hello
         </div>
     )

@@ -11,6 +11,7 @@ import PortalExport from './Portal';
 
 import './index.scss';
 import RefForm from './refForm';
+import UseRefTest from './useRefTest';
 
 const BigButton = styled(Button)` //щоб це працювало був імпорт styled
   margin: 0 auto;
@@ -26,8 +27,9 @@ ReactDOM.render(
     <App/>
     <BootstrapTest />
     <Counter1/>
-    <RefForm/>
-    <PortalExport/>
+    {/* <RefForm/>
+    <PortalExport/> */}
+    <UseRefTest/>
   </React.StrictMode>,
   document.getElementById('root'),
 );
