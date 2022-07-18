@@ -12,6 +12,7 @@ import PortalExport from './Portal';
 import './index.scss';
 import RefForm from './refForm';
 import UseRefTest from './useRefTest';
+import FormMyHoock from './MyHoocks';
 
 const BigButton = styled(Button)` //щоб це працювало був імпорт styled
   margin: 0 auto;
@@ -30,6 +31,7 @@ ReactDOM.render(
     <RefForm/>
     <PortalExport/>
     <UseRefTest/>
+    <FormMyHoock/>
   </React.StrictMode>,
   document.getElementById('root'),
 );
