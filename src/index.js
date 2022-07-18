@@ -27,8 +27,8 @@ ReactDOM.render(
     <App/>
     <BootstrapTest />
     <Counter1/>
-    {/* <RefForm/>
-    <PortalExport/> */}
+    <RefForm/>
+    <PortalExport/>
     <UseRefTest/>
   </React.StrictMode>,
   document.getElementById('root'),
