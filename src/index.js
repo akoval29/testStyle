@@ -13,6 +13,7 @@ import './index.scss';
 import RefForm from './refForm';
 import UseRefTest from './useRefTest';
 import FormMyHoock from './MyHoocks';
+import NewFeaturesHook from '../src/transition_deferedVal-test/App'
 
 const BigButton = styled(Button)` //щоб це працювало був імпорт styled
   margin: 0 auto;
@@ -32,6 +33,7 @@ ReactDOM.render(
     <PortalExport/>
     <UseRefTest/>
     <FormMyHoock/>
+    <NewFeaturesHook/>
   </React.StrictMode>,
   document.getElementById('root'),
 );
